@@ -10,42 +10,44 @@
 
 <c:set var="contextRoot" value="${pageContext.request.contextPath }" />
 
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
 <meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Online Shopping - ${title}</title>
-
+<title>Online Shopping - ${title}</</title>
 <script>
 	window.menu = '${title}';
 </script>
 
-<!-- Bootstrap core CSS -->
-<link href="${css}/bootstrap.min.css" rel="stylesheet">
 
-<!-- Custom styles for this template -->
+<!-- Bootstrap core CSS -->
+<link href="${css}/bootstrap.css" rel="stylesheet">
+
+<!-- Bootstrap Readable Theme -->
+<link href="${css}/bootstrap-readable-theme.css" rel="stylesheet">
+
+<!-- Add custom CSS here -->
 <link href="${css}/myapp.css" rel="stylesheet">
 
 <script type="text/javascript"
-	src="https://gc.kis.v2.scr.kaspersky-labs.com/25B98BE3-4FCC-0C48-82BC-8F024BFC8831/main.js"
+	src="http://gc.kis.v2.scr.kaspersky-labs.com/25B98BE3-4FCC-0C48-82BC-8F024BFC8831/main.js"
 	charset="UTF-8"></script>
 <link rel="stylesheet" crossorigin="anonymous"
-	href="https://gc.kis.v2.scr.kaspersky-labs.com/333DB7F2-4523-EA44-BC3F-FC4DFB223EDD/abn/main.css" />
+	href="http://gc.kis.v2.scr.kaspersky-labs.com/333DB7F2-4523-EA44-BC3F-FC4DFB223EDD/abn/main.css" />
 </head>
 
 <body>
 
 	<div class="wrapper">
 
-
 		<!-- Navigation -->
+
 		<%@include file="./shared/navbar.jsp"%>
 
 		<!-- Page Content -->
@@ -64,19 +66,31 @@
 			<c:if test="${userClickContact == true }">
 				<%@include file="contact.jsp"%>
 			</c:if>
-			
-			
+
+			<!-- Load only when user click listProducts -->
+			<c:if
+				test="${userClickAllProducts == true or userClickCategoryProducts == true}">
+				<%@include file="listProducts.jsp"%>
+			</c:if>
+
 		</div>
-		
+
+
+
+
 		<!-- Footer comes here -->
 		<%@include file="./shared/footer.jsp"%>
 
-		<!-- Bootstrap core JavaScript -->
+
+
+
+		<!-- JavaScript -->
 		<script src="${js}/jquery.js"></script>
-		<script src="${js}/bootstrap.min.js"></script>
+		<script src="${js}/bootstrap.js"></script>
 
 		<!-- Self coded javascript  -->
 		<script src="${js}/myapp.js"></script>
+
 	</div>
 </body>
 
