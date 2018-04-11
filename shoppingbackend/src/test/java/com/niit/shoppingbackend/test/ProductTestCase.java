@@ -23,7 +23,7 @@ private static AnnotationConfigApplicationContext context;
 		context.refresh();
 		productDAO = (ProductDAO)context.getBean("productDAO");
 }
-	/*
+/*
 	@Test
 	public void testCRUDProduct() {
 		product =new Product();
@@ -47,10 +47,8 @@ private static AnnotationConfigApplicationContext context;
 		//list
 		assertEquals("Something went wrong while fetching the list of products!",6,productDAO.list().size());
 		
-		
-	}
+		}
 	*/
-	
 	@Test
 	public void testListActiveProducts() {
 		
@@ -72,4 +70,10 @@ private static AnnotationConfigApplicationContext context;
 
 
 	
+
+	
 }
+
+	 
+
+

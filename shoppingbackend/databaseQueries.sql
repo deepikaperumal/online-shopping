@@ -62,7 +62,7 @@ INSERT INTO product(code, name, brand, description, unit_price, quantity, is_act
 VALUES('QWERT09876', 'Samsung s7', 'Samsung', 'This is one of the best android smart phone available in the market right now!', '32000','2', 'true', 3,3);
 
 INSERT INTO product(code, name, brand, description, unit_price, quantity, is_active, category_id, supplier_id)
-VALUES('POIUY12345', 'GOOGLE PIXEL', 'google', 'This is one of the best android smart phone available in the market right now!', '58000','5', 'true', 1,3);
+VALUES('ghjkl67543', 'GOOGLE PIXEL', 'google', 'This is one of the best android smart phone available in the market right now!', '58000','5', 'true', 1,3);
 
 INSERT INTO product(code, name, brand, description, unit_price, quantity, is_active, category_id, supplier_id)
 VALUES('ASDFG98765', 'Macbook pro', 'apple', 'This is one of the best Laptop available in the market right now!', '58000','5', 'true', 3,2);
