@@ -20,6 +20,12 @@
      <property name="prefix" value="/WEB-INF/views/"/>
      <property name="suffix" value=".jsp"/>
       </bean>
+      
+      <!-- id must be multipathResolver -->
+      <bean id ="multipathResolver"
+      class="org.springframework.web.multipart.support.StandardServletMultipartResolver"/>
+      
+      
       <!-- Loading static resources -->
       <mvc:annotation-driven/>
       
