@@ -95,7 +95,7 @@
 
 
 
-
+ 
 		<!-- Footer comes here -->
 		<%@include file="./shared/footer.jsp"%>
 
@@ -104,6 +104,9 @@
 
 		<!-- jQuery -->
 		<script src="${js}/jquery.js"></script>
+		
+		<!-- jQuery validate -->
+		<script src="${js}/jquery.Validate.js"></script>
 		
 		<!-- bootstrap core javaScript -->
 		<script src="${js}/bootstrap.js"></script>

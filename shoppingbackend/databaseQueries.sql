@@ -9,9 +9,7 @@ CREATE TABLE category (
 
 
 );
-INSERT INTO category (name,description,image_url,is_active) VALUES ('Laptop','This is description for Laptop Category!','CAT_1.png',true);
-INSERT INTO category (name,description,image_url,is_active) VALUES ('Television','This is description for Television Category!','CAT_2.png',true);
-INSERT INTO category (name,description,image_url,is_active) VALUES ('Mobile','This is description for Mobile Category!','CAT_3.png',true);
+
 
 CREATE TABLE user_detail(
   id IDENTITY,
@@ -25,17 +23,7 @@ CREATE TABLE user_detail(
   CONSTRAINT pk_user_id PRIMARY KEY(id),
 );
 
-INSERT INTO user_detail
-(first_name, last_name, role, enabled, password, email, contact_number)
-VALUES('Deepika', 'Perumal', 'ADMIN', 'true', 'admin', 'deepi@gmail.com', '9988776655');
 
-INSERT INTO user_detail
-(first_name, last_name, role, enabled, password, email, contact_number)
-VALUES('Akela', 'Arun', 'SUPPLIER', 'true', '1111', 'akela@gmail.com', '9911223344');
-
-INSERT INTO user_detail
-(first_name, last_name, role, enabled, password, email, contact_number)
-VALUES('Indhu', 'Mathi', 'SUPPLIER', 'true', '1111', 'indhu@gmail.com', '9966778899');
 
 CREATE TABLE product (
 id IDENTITY,
@@ -55,6 +43,56 @@ CONSTRAINT fk_product_category_id FOREIGN KEY (category_id) REFERENCES category 
 CONSTRAINT fk_product_supplier_id FOREIGN KEY (supplier_id) REFERENCES user_detail(id),
 );
 
+-- the address table to store the user biling and shipping
+CREATE TABLE address{
+id IDENTITY,
+user_id int,
+address_line_one VARCHAR(100),
+address_line_two VARCHAR(100),
+city VARCHAR(20),
+state VARCHAR(20),
+country VARCHAR(20),
+postal_code VARCHAR(10),
+is_billing BOOLEAN,
+is_shipping BOOLEAN,
+CONSTRAINT fk_address_user_id FOREIGN KEY (user_id) REFERENCES user_detail(id),
+CONSTRAINT pk_address_id PRIMARY KEY (id),
+};
+-- the cart table to store the user cart top-level detail
+CREATE TABLE cart{
+ id IDENTITY,
+ user_id int,
+ grand_total DECIMAL(10,2),
+ cart_lines int,
+ CONSTRAINT fk_cart_user_id FOREIGN KEY (user_id) REFERENCES user_detail(id),
+ CONSTRAINT pk_cart_id PRIMARY KEY (id),
+};
+
+--adding three categoryies
+INSERT INTO category (name,description,image_url,is_active) VALUES ('Laptop','This is description for Laptop Category!','CAT_1.png',true);
+INSERT INTO category (name,description,image_url,is_active) VALUES ('Television','This is description for Television Category!','CAT_2.png',true);
+INSERT INTO category (name,description,image_url,is_active) VALUES ('Mobile','This is description for Mobile Category!','CAT_3.png',true);
+
+--adding three user
+INSERT INTO user_detail
+(first_name, last_name, role, enabled, password, email, contact_number)
+VALUES('Deepika', 'Perumal', 'ADMIN', 'true', 'admin', 'deepi@gmail.com', '9988776655');
+
+INSERT INTO user_detail
+(first_name, last_name, role, enabled, password, email, contact_number)
+VALUES('Akela', 'Arun', 'SUPPLIER', 'true', '1111', 'akela@gmail.com', '9911223344');
+
+INSERT INTO user_detail
+(first_name, last_name, role, enabled, password, email, contact_number)
+VALUES('Indhu', 'Mathi', 'SUPPLIER', 'true', '1111', 'indhu@gmail.com', '9966778899');
+
+--adding a supplier correspondence address
+INSERT INTO address(user_id , address_line_one, address_line_two, city, state, country, postalcode, billing)
+VALUES(2,'20 ABCD Nagar','Near ABC School','Chennai','TamilNadu','India','87654','FALSE')
+----adding a cart for testing
+INSERT INTO cart (user_id, grand_total, cart_line) VALUES(null,0,0);
+
+--adding five products
 INSERT INTO product(code, name, brand, description, unit_price, quantity, is_active, category_id, supplier_id)
 VALUES('POIUY12345', 'iPhone', 'Apple', 'This is one of the best android smart phone available in the market right now!', '25000','5', 'true', 3,2);
 
