@@ -114,10 +114,25 @@ public class PageController {
 		//Update the view count
 		productDAO.update(product);
 		product.setViews(product.getViews()+1);
-		//----------------
+		//---------------- 
 		mv.addObject("title",product.getName());
 		mv.addObject("product",product);
 		 mv.addObject("userClickShowProduct",true);
 		 return mv;	
 	}
+
+/*having similar mapping to our flow id*/
+	
+	@RequestMapping(value= {"/register"})
+	public ModelAndView register() {
+		
+		ModelAndView mv=new ModelAndView("page");
+	    mv.addObject("title","About Us");
+	   
+		return mv;
+}
+
+
+
+
 }

@@ -1,5 +1,8 @@
 package com.niit.shoppingbackend.dto;
 
+
+import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,10 +14,13 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="user_detail")
-public class User {
-/*
- * private fields for user
- */
+public class User implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -23,8 +29,8 @@ public class User {
 	@Column(name="last_name")
 	private String lastName;
 	private String email;
-	@Column(name="contect_number")
-	private String contectNumber;
+	@Column(name="contact_number")
+	private String contactNumber;
 	private String role;
 	private String password;
 	private boolean enabled=true;
@@ -67,11 +73,11 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getContectNumber() {
-		return contectNumber;
+	public String getContactNumber() {
+		return contactNumber;
 	}
 	public void setContectNumber(String contectNumber) {
-		this.contectNumber = contectNumber;
+		this.contactNumber = contectNumber;
 	}
 	public String getRole() {
 		return role;
@@ -97,7 +103,7 @@ public class User {
 	 */
 	@Override
 	public String toString() {
-		return "User [id="+id+", firstName="+ firstName+", lastName="+lastName+", email="+email+", contectNumber="+contectNumber+",role="+role+", password="+password+",enabled="+enabled+"]";
+		return "User [id="+id+", firstName="+ firstName+", lastName="+lastName+", email="+email+", contactNumber="+contactNumber+",role="+role+", password="+password+",enabled="+enabled+"]";
 			
 	}
 	
