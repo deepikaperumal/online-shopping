@@ -38,7 +38,7 @@ public static void init() {
 		user.setFirstName("Deepika");
 		user.setLastName("Perumal");
 		user.setEmail("deepi@gmail.com");
-		user.setContectNumber("9876543212");
+		user.setContactNumber("9876543212");
 		user.setRole("USER");
 		user.setPassword("12345");
 		
@@ -98,7 +98,7 @@ public static void init() {
 		user.setFirstName("Deepika");
 		user.setLastName("Perumal");
 		user.setEmail("deepi@gmail.com");
-		user.setContectNumber("9876543212");
+		user.setContactNumber("9876543212");
 		user.setRole("USER");
 		user.setPassword("12345");
 		
@@ -148,7 +148,7 @@ public static void init() {
 		user.setFirstName("Deepika");
 		user.setLastName("Perumal");
 		user.setEmail("deepi@gmail.com");
-		user.setContectNumber("9876543212");
+		user.setContactNumber("9876543212");
 		user.setRole("USER");
 		user.setPassword("12345");
 		
@@ -230,3 +230,4 @@ public static void init() {
 	
 	
 }
+

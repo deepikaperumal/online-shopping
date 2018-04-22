@@ -105,4 +105,10 @@ public class UserDAOImpl implements UserDAO {
 			 return null;
 		 }
 	}
+
+	@Override
+	public Object addCart(Cart cart) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

@@ -11,6 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 @Entity
 public class Address implements Serializable {
 
@@ -43,24 +45,24 @@ public void setUser(User user) {
 /*--------*/
 
 @Column(name="address_line_one")
-
+@NotBlank(message="Please Enter the address Line One!")
 private String addressLineOne;
 
 @Column(name="address_line_two")
-
+@NotBlank(message="Please Enter the address Line Two!")
 private String addressLineTwo;
 
-
+@NotBlank(message="Please Enter the city!")
 private String city;
 
-
+@NotBlank(message="Please Enter the state!")
 private String state;
 
-
+@NotBlank(message="Please Enter the country!")
 private String country;
 
 @Column(name="postal_code")
-
+@NotBlank(message="Please Enter the postal Code!")
 private String postalCode;
 
 @Column(name="is_shipping")
@@ -134,11 +136,9 @@ public String toString() {
 			+ ", addressLineTwo=" + addressLineTwo + ", city=" + city + ", state=" + state + ", country=" + country
 			+ ", postalCode=" + postalCode + ", shipping=" + shipping + ", billing=" + billing + "]";
 }
-
-
-/*
- * toString for logging and debugging activity
- */
-
+public void setUserId(int id) {
+	// TODO Auto-generated method stub
+	
+}
 
 }
