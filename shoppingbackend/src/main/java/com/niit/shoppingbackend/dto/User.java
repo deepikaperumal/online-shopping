@@ -36,7 +36,7 @@ public class User implements Serializable {
 	@NotBlank(message="Please Enter the email name!")
 	private String email;
 	@Column(name="contact_number")
-	
+	@NotBlank(message="Please Enter the contact number!")
 	private String contactNumber;
 
 	private String role;
@@ -98,7 +98,7 @@ public class User implements Serializable {
 	public String getContactNumber() {
 		return contactNumber;
 	}
-	public void setContectNumber(String contactNumber) {
+	public void setContactNumber(String contactNumber) {
 		this.contactNumber = contactNumber;
 	}
 	public String getRole() {

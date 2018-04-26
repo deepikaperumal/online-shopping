@@ -17,7 +17,7 @@ CREATE TABLE user_detail(
   last_name VARCHAR(50),
   role VARCHAR(50),
   enabled BOOLEAN,
-  password VARCHAR(50),
+  password VARCHAR(60),
   email VARCHAR(50),
   contact_number VARCHAR(50),
   CONSTRAINT pk_user_id PRIMARY KEY(id),
@@ -68,6 +68,32 @@ CREATE TABLE cart{
  CONSTRAINT pk_cart_id PRIMARY KEY (id),
 };
 
+
+
+--the cart line table to store the cart details
+
+CREATE TABLE cart_line (
+id IDENTITY,
+cart_id int,
+total DECIMAL(10,2),
+product_id int,
+product_count int,
+buying_price DECIMAL(10,2),
+is_available boolean,
+
+CONSTRAINT fk_cartline_cart_id FOREIGN KEY(cart_id)REFERENCES cart(id),
+CONSTRAINT fk_cartline_product_id FOREIGN KEY(product_id)REFERENCES product(id),
+CONSTRAINT pk_cartline_id PRIMARY KEY(id)
+
+);
+
+
+
+
+
+
+
+
 --adding three categoryies
 INSERT INTO category (name,description,image_url,is_active) VALUES ('Laptop','This is description for Laptop Category!','CAT_1.png',true);
 INSERT INTO category (name,description,image_url,is_active) VALUES ('Television','This is description for Television Category!','CAT_2.png',true);
@@ -76,15 +102,15 @@ INSERT INTO category (name,description,image_url,is_active) VALUES ('Mobile','Th
 --adding three user
 INSERT INTO user_detail
 (first_name, last_name, role, enabled, password, email, contact_number)
-VALUES('Deepika', 'Perumal', 'ADMIN', 'true', 'admin', 'deepi@gmail.com', '9988776655');
+VALUES('Deepika', 'Perumal', 'ADMIN', 'true', '$2a$10$FjCfJELP/co1WF7I4WbwxeXpg0CCHbuXQ8UbS4JsZUKmBAxPhmx8K', 'admin@gmail.com', '9988776655');
 
 INSERT INTO user_detail
 (first_name, last_name, role, enabled, password, email, contact_number)
-VALUES('Akela', 'Arun', 'SUPPLIER', 'true', '1111', 'akela@gmail.com', '9911223344');
+VALUES('Akela', 'Arun', 'SUPPLIER', 'true', '$2a$10$FjCfJELP/co1WF7I4WbwxeXpg0CCHbuXQ8UbS4JsZUKmBAxPhmx8K', 'akela@gmail.com', '9911223344');
 
 INSERT INTO user_detail
 (first_name, last_name, role, enabled, password, email, contact_number)
-VALUES('Indhu', 'Mathi', 'SUPPLIER', 'true', '1111', 'indhu@gmail.com', '9966778899');
+VALUES('Indhu', 'Mathi', 'SUPPLIER', 'true', '$2a$10$FjCfJELP/co1WF7I4WbwxeXpg0CCHbuXQ8UbS4JsZUKmBAxPhmx8K', 'indhu@gmail.com', '9966778899');
 
 --adding a supplier correspondence address
 INSERT INTO address(user_id , address_line_one, address_line_two, city, state, country, postalcode, billing)
@@ -99,11 +125,6 @@ VALUES('POIUY12345', 'iPhone', 'Apple', 'This is one of the best android smart p
 INSERT INTO product(code, name, brand, description, unit_price, quantity, is_active, category_id, supplier_id)
 VALUES('QWERT09876', 'Samsung s7', 'Samsung', 'This is one of the best android smart phone available in the market right now!', '32000','2', 'true', 3,3);
 
-INSERT INTO product(code, name, brand, description, unit_price, quantity, is_active, category_id, supplier_id)
-VALUES('ghjkl67543', 'GOOGLE PIXEL', 'google', 'This is one of the best android smart phone available in the market right now!', '58000','5', 'true', 1,3);
-
-INSERT INTO product(code, name, brand, description, unit_price, quantity, is_active, category_id, supplier_id)
-VALUES('ASDFG98765', 'Macbook pro', 'apple', 'This is one of the best Laptop available in the market right now!', '58000','5', 'true', 3,2);
 
 INSERT INTO product(code, name, brand, description, unit_price, quantity, is_active, category_id, supplier_id)
 VALUES('DFGHJ56784', 'Dell Latitude E6510', 'Dell', 'This is one of the best Laptop series from dell that can be used!', '50000','5', 'true', 1,3);

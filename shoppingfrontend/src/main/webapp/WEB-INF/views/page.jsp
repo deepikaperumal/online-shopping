@@ -20,6 +20,9 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
+<meta name="_csrf" content="${_csrf.token}">
+<meta name="_csrf_header" content="${_csrf.headerName}"> 
+
 <title>Online Shopping - ${title}</</title>
 <script>
 	window.menu = '${title}';
@@ -28,7 +31,7 @@
 </script>
 
 
-<!-- Bootstrap core CSS -->
+<!-- Bootstrap core CSS --> 
 <link href="${css}/bootstrap.css" rel="stylesheet">
 
 <!-- Bootstrap Readable Theme -->
@@ -48,7 +51,7 @@
 	href="http://gc.kis.v2.scr.kaspersky-labs.com/333DB7F2-4523-EA44-BC3F-FC4DFB223EDD/abn/main.css" />
 </head>
 
-<body>
+<body style="background-color:powderblue;">
 
 	<div class="wrapper">
 
@@ -89,6 +92,15 @@
 			<c:if
 				test="${userClickManageProducts == true}">
 				<%@include file="manageProducts.jsp"%>
+			</c:if>
+			
+			<c:if
+				test="${userClickShowCart == true}">
+				<%@include file="cart.jsp"%>
+			</c:if>
+			
+			<c:if test="${userClickCheckout == true}">
+				<%@include file="thankyou.jsp" %>
 			</c:if>
 
 		</div>

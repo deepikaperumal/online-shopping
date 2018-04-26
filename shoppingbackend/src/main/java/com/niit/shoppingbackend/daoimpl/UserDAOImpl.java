@@ -1,3 +1,4 @@
+
 package com.niit.shoppingbackend.daoimpl;
 
 import java.util.List;
@@ -47,18 +48,7 @@ public class UserDAOImpl implements UserDAO {
 		}
 	}
 
-	@Override
-	public boolean updateCart(Cart cart) {
-		try {
-			sessionFactory.getCurrentSession().update(cart);
-			return true;
-		}
-		catch(Exception ex) {
-			ex.printStackTrace();
-		
-		return false;
-	}
-	}
+	
 
 	@Override
 	public User getByEmail(String email) {
@@ -69,7 +59,7 @@ public class UserDAOImpl implements UserDAO {
 					.getSingleResult();
 		}
 		catch(Exception ex) {
-			ex.printStackTrace();
+			//ex.printStackTrace();
 			return null;
 		}
 	}
@@ -106,9 +96,6 @@ public class UserDAOImpl implements UserDAO {
 		 }
 	}
 
-	@Override
-	public Object addCart(Cart cart) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 }
+

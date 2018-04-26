@@ -46,7 +46,7 @@
 							<div class="col-md-8">
 								<sf:input type="text" path="contactNumber" class="form-control"
 									placeholder="xxxxxxxxxx" maxlength="10" />
-									
+									<sf:errors path="contactNumber" cssClass="help-block" element="em"/>
 							</div>
 							</div>
 							
@@ -88,6 +88,8 @@
 				<button type="submit" class="btn btn=primary"
 				name="_eventId_billing"
 				>
+				
+				
 			Next-Billing<span class="glyphicon glyphicon-chevron-right"></span>
 				
 				
@@ -105,5 +107,5 @@
 
 	</div>
 </div>
-
+]\
 <%@include file="../shared/flows-footer.jsp"%>
