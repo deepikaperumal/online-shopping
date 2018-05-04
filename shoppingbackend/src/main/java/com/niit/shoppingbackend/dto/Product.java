@@ -60,7 +60,7 @@ public class Product {
 	public void setFile(MultipartFile file) {
 		this.file = file;
 	}
-
+ 
 	//default constructor 
 	public Product() {
 		this.code ="PRD" + UUID.randomUUID().toString().substring(26).toUpperCase();

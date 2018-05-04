@@ -91,6 +91,12 @@ custom styling
 	 
 }
 
+.supplierDataTableImg{
+	height:50px;
+	width: 50px;
+	 
+}
+
 /*Toggle Switch*/  
 .switch{
 	width: 50px;

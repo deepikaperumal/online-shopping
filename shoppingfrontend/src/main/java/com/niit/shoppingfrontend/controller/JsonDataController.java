@@ -38,4 +38,5 @@ public class JsonDataController {
 		return productDAO.listActiveProductsByCategory(id);
 	}
 	
+	
 }

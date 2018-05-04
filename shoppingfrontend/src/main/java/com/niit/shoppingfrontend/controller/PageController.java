@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.niit.shoppingbackend.dao.CategoryDAO;
 import com.niit.shoppingbackend.dao.ProductDAO;
+import com.niit.shoppingbackend.dao.SupplierDAO;
 import com.niit.shoppingbackend.dao.UserDAO;
 import com.niit.shoppingbackend.dto.Category;
 import com.niit.shoppingbackend.dto.Product;
@@ -39,6 +40,9 @@ public class PageController {
 	@Autowired
 	private UserDAO userDAO;
 	
+	@Autowired
+	private SupplierDAO supplierDAO;
+	
 	@RequestMapping(value= {"/","/home","/index"})
 	public ModelAndView index() {
 	
@@ -50,6 +54,8 @@ public class PageController {
 	    
 	    //passing the list of categories
 	    mv.addObject("categories",categoryDAO.list());
+	    
+	    mv.addObject("suppliers", supplierDAO.list());
 	    
 	    mv.addObject("userClickHome",true);
 		return mv;
@@ -87,6 +93,8 @@ public class PageController {
 	    //passing the list of categories
 	    mv.addObject("categories",categoryDAO.list());
 	    
+	    mv.addObject("suppliers", supplierDAO.list());
+	    
 	    mv.addObject("userClickAllProducts",true);
 		return mv;
 }
@@ -108,6 +116,7 @@ public class PageController {
 	    //passing the single category object
 	    mv.addObject("category",category);
 	    
+	    mv.addObject("suppliers", supplierDAO.list());
 	    
 	    mv.addObject("userClickCategoryProducts",true);
 		return mv;
@@ -197,15 +206,15 @@ public class PageController {
 	@RequestMapping("/thankyou")
 	public ModelAndView getThankyouPage()
 	{
-		ModelAndView mAndV = new ModelAndView("thankyou");
+		ModelAndView mv = new ModelAndView("thankyou");
 		
-		mAndV.addObject("userClickCheckout", true);
+		mv.addObject("userClickCheckout", true);
 		
 		String email_id = SecurityContextHolder.getContext().getAuthentication().getName();
 		User user = userDAO.getByEmail(email_id);
-		mAndV.addObject("user", user);
+		mv.addObject("user", user);
 		
-		return mAndV;
+		return mv;
 	}
 	
 	

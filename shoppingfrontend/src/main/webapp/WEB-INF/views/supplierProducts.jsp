@@ -26,7 +26,7 @@
 
 				<div class="panel-heading">
 
-					<h4>Product Management</h4>
+					<h4>Supplier</h4>
 
 				</div>
 
@@ -35,7 +35,7 @@
 					<!-- FORM ELEMENTS -->
 
 					<sf:form class="form-horizontal" modelAttribute="product"
-						action="${contextRoot}/manage/products" method="POST"
+						action="${contextRoot}/supplier/products" method="POST"
 						enctype="multipart/form-data">
 
 						<div class="form-group">
@@ -134,10 +134,11 @@
 
 
 						</div>
-
-
-
-
+						
+						
+						
+						
+						
 						<div class="form-group">
 
 							<label class="control-label col-md-4" for="categoryId">Select
@@ -147,13 +148,28 @@
 								<sf:select class="form-control" id="categoryId"
 									path="categoryId" items="${categories}" itemLabel="name"
 									itemValue="id" />
+										</div>
+										</div>
+						
+						
+
+
+						<div class="form-group">
+
+							<label class="control-label col-md-4" for="supplierId">Select
+								Supplier:</label>
+
+							<div class="col-md-8">
+								<sf:select class="form-control" id="supplierId"
+									path="supplierId" items="${supplier}" itemLabel="name"
+									itemValue="id" />
 										
 								<c:if test="${product.id==0}">
 									<div class="text-right">
 										<br />
 										<button type="button" data-toggle="modal"
-											data-target="#myCategoryModal" class="btn btn-warning btn-xs">Add
-											Category</button>
+											data-target="#mySupplierModal" class="btn btn-warning btn-xs">Add
+											Supplier</button>
 											
 								</div>
 								</c:if>
@@ -211,7 +227,7 @@
 
 				<!-- Products table for Admin -->
 
-				<table id="adminProductsTable"
+				<table id="supplierProductsTable"
 					class="table table-striped table-bordered">
 
 					<thead>
@@ -249,7 +265,7 @@
 	</div>
 
 
-	<div class="modal fade" id="myCategoryModal" role="dialog"
+	<div class="modal fade" id="mySupplierModal" role="dialog"
 		tabindex="-1">
 
 		<div class="modal-dialog" role="document">
@@ -266,7 +282,7 @@
 
 					</button>
 
-					<h4 class="modal-title">Add New Category</h4>
+					<h4 class="modal-title">Add New Supplier</h4>
 
 				</div>
 
@@ -274,8 +290,8 @@
 
 					<!-- Category Form -->
 
-					<sf:form  id="categoryForm" modelAttribute="category"
-						action="${contextRoot}/manage/category" method="POST" class="form-horizontal">
+					<sf:form  id="supplierForm" modelAttribute="supplier"
+						action="${contextRoot}/supplier/supplier" method="POST" class="form-horizontal">
 						
 						<div class="form-group">
 						
@@ -303,7 +319,7 @@
 						
 						<div class="col-md-offset-4 col-md-8">
 						
-						<input type="submit" value="Add Category" class="btn btn-primary"/>
+						<input type="submit" value="Add Supplier" class="btn btn-primary"/>
 						
 							</div>
 						</div>
@@ -324,3 +340,4 @@
 	
 </div>
 
+	

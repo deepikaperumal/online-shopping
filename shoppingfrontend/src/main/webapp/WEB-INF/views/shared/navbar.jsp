@@ -21,9 +21,15 @@
 					href="${contextRoot}/show/all/products">View Products</a></li>
 
 				<security:authorize access="hasAuthority('ADMIN')">
-
+               
 					<li id="manageProducts"><a
 						href="${contextRoot}/manage/products">Manage Products</a></li>
+				</security:authorize>
+				
+				<security:authorize access="hasAuthority('SUPPLIER')">
+               
+					<li id="supplierProducts"><a
+						href="${contextRoot}/supplier/products">Supplier Products</a></li>
 				</security:authorize>
 
 				<li id="contact"><a href="${contextRoot}/contact">Contact</a></li>

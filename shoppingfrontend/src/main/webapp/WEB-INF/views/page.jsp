@@ -95,6 +95,11 @@
 			</c:if>
 			
 			<c:if
+				test="${userClickSupplierProducts == true}">
+				<%@include file="supplierProducts.jsp"%>
+			</c:if>
+			
+			<c:if
 				test="${userClickShowCart == true}">
 				<%@include file="cart.jsp"%>
 			</c:if>
